@@ -1,11 +1,40 @@
 <!doctype html> 
+{% load static %}
 <html> 
     <head> 
+       <link rel="stylesheet" href="{% static '/css/style.css' %}">
+        
+        
         {% block head %}
         {% endblock %}
     </head> 
 
     <body> 
+        <div class="nav">
+            <img src="{% static '/assets/cropped-png-file1.png' %}">
+            <div class="nav-header">
+              <div class="nav-title">
+                <strong>{{request.user.profile.organisation}}</strong>
+              </div>
+            </div>
+
+            <div class="nav-btn">
+              <label for="nav-check">
+                <span></span>
+                <span></span>
+                <span></span>
+              </label>
+            </div>
+            
+            <div class="nav-links">
+              <a href="#"><strong>Home</strong></a>
+              <a href="#"><strong>Progress</strong></a>
+              <a href="#"><strong>Option</strong></a>
+              <a href="#"><strong>Option</strong></a>
+              <a href="#"><strong>Logout</strong></a>
+            </div>
+        </div>
+        
         {% block body %}
         
         {% endblock %}
