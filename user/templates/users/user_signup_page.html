@@ -1,0 +1,204 @@
+{% extends 'basic.html' %}
+
+
+
+{% block head %}
+    <title> 
+        Signup 
+    </title> 
+    <style>
+    select{
+        width:100%;
+        display: block;
+    
+      padding: 0.375rem 0.75rem;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.5;
+      color: #212529;
+      background-color: #fff;
+      background-clip: padding-box;
+      border: 1px solid #ced4da;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      border-radius: 0.25rem;
+      transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+
+    }
+
+    </style>
+{% endblock %}
+
+{% block body %}
+<div class="row justify-content-center">
+    <div class="col-md-5">
+      <div class="card">
+        <div class="card-header card-header-primary">
+          <h4 class="card-title">
+            Create Account as a Student
+          </h4>
+        </div>
+        <div class="card-body">
+
+          <h6 class="card-category">
+              {% if msg %}
+                <span class="text-danger">{{ msg | safe }}</span>
+              {% else %}
+                Add your credentials
+              {% endif %}  
+          </h6>
+          
+          <br />
+
+          {% if success %}
+
+            <p class="">
+              Please <a href="{% url 'login' %}" class="text-black text-small">Login</a> using the new account.
+            </p>  
+
+          {% else %}
+            <form role="form" method="post" action="">
+                
+              {% csrf_token %} 
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Email</label>
+                    {{ form.username }}
+                  </div>
+                </div>
+              </div>
+              <span class="text-danger">{{ form.username.errors }}</span>
+
+              <br />
+
+              <!--<div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Email</label>
+                    {{ form.email }}
+                  </div>
+                </div>
+              </div>
+              <span class="text-danger">{{ form.email.errors }}</span>
+
+              <br />-->
+
+              
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">First Name</label>
+                    <br/>
+                    {{ form.firstname }}
+                  </div>
+                </div>
+              </div>
+              <span class="text-danger">{{ form.firstname.errors }}</span>
+
+              <br />
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Last Name</label>
+                    <br/>
+                    {{ form.lastname }}
+                  </div>
+                </div>
+              </div>
+              <span class="text-danger">{{ form.lastname.errors }}</span>
+              <br/>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Password</label>
+                    {{ form.password1 }}
+                  </div>
+                </div>
+              </div>
+              <span class="text-danger">{{ form.password1.errors }}</span>
+
+              <br />
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Confirm Password</label>
+                    {{ form.password2 }}
+                  </div>
+                </div>
+              </div>
+              <span class="text-danger">{{ form.password2.errors }}</span>
+
+              <br />
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Semester</label>
+                    <br/>
+                    {{ form.semester }}
+                  </div>
+                </div>
+              </div>
+              <span class="text-danger">{{ form.semester.errors }}</span>
+
+              <br />
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Placement Year</label>
+                    <br/>
+                    {{ form.placement_year }}
+                  </div>
+                </div>
+              </div>
+              <span class="text-danger">{{ form.placement_year.errors }}</span>
+
+              <br />
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Passout Year</label>
+                    <br/>
+                    {{ form.passout_year }}
+                  </div>
+                </div>
+              </div>
+              <span class="text-danger">{{ form.passout_year.errors }}</span>
+
+              <br />
+
+              <button type="submit" name="register" class="btn btn-primary pull-left">Register</button>
+
+              &nbsp; &nbsp; 
+              <span class="pull-right">
+                Have an account? <a href="{% url 'login' %}" class="text-primary">Login</a>
+              </span>
+
+              <div class="clearfix"></div>
+
+            </form>
+          {% endif %}
+
+        </div>
+      </div>
+    </div>
+  </div> 
+    <!-- 
+        first name
+        last name
+        email (username)
+        pass
+        proff/stud
+        current year(dropdown)
+        expected year pass out(dropdown)
+        placement year
+        branch
+    -->
+{% endblock %}
+
+

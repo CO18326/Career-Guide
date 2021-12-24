@@ -1,0 +1,30 @@
+{% extends 'basic.html' %}
+{% block head %}
+    <title>
+        Course View 
+    </title>
+{% endblock %}
+
+{% block body %}
+    <table>
+        {% for course in course_data %}
+        <tr> 
+            <td> 
+                {{ course.course_id }}
+            </td> 
+            <td> 
+                {{ course.course_name }}
+            </td> 
+            <td> 
+                {{ course.uploaded_at }}
+            </td>
+            
+            <td> 
+                <a href="/courese/{{ course.course_id }}"> 
+                    view 
+                </a> 
+            </td> 
+        </tr> 
+        {% endfor %}
+    </table> 
+{% endblock %}
