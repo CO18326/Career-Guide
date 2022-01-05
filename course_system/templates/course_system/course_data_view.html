@@ -1,0 +1,102 @@
+{% extends 'basic.html' %}
+{% block head %}
+    <title> 
+
+    </title> 
+{% endblock %}
+
+
+{% block body %}
+
+    {% comment %} 
+        Course Details. 
+    {% endcomment %}
+    <div class="container" style="border: 1px solid gray;padding: 5px;border-radius:5px;"> 
+        <table class="table"> 
+            <thead class="table-dark"> 
+                <th scope="col"> 
+                    course name
+                </th> 
+                
+                <th scope="col"> 
+                    subject name
+                </th> 
+
+                <th scope="col"> 
+                    registered on
+                </th> 
+
+                <th scopre="col"> 
+                    registered by     
+                </th> 
+
+        </thead> 
+
+        <tbody> 
+            <tr> 
+                <td> 
+                    {{ course_model.course_name }}
+                </td> 
+                <td> 
+                    {{ course_data_object.get_subject_name }}
+                </td> 
+                <td> 
+                    {{ course_model.uploaded_at }}
+                </td> 
+                <td> 
+                    <u>under construction<u>
+                </td> 
+            </tr> 
+        </tbody> 
+
+        </table> 
+    </div> 
+
+    <div class="container"> 
+        <hr/>
+    </div> 
+
+    {% comment %} 
+        for course pre requireds. 
+    {% endcomment %}
+    <div class="container"> 
+        <p class="h4 text-capitalize"> 
+            subject prerequisites
+        </p> 
+        <ul> 
+            {% for pre in course_data_object.get_course_pre_request %}
+                <li> 
+                    <p class="h6">{{ pre }}</p>
+                </li> 
+            {% endfor %}
+        </ul> 
+    </div> 
+    
+    <div class="container"> 
+        <hr/>
+    </div> 
+
+    {% comment %} 
+        course outcomes
+    {% endcomment %}
+
+    <div class="container"> 
+        <p class="h4 text-capitalize"> 
+            subject outcomes
+        </p> 
+        <ul> 
+            {% for outcomes in course_data_object.get_course_outcomes %}
+                <li> 
+                    <p class="h6">{{ outcomes }}</p>
+                </li> 
+            {% endfor %}
+        </ul> 
+    </div> 
+    
+    <div class="container"> 
+        <hr/>
+    </div> 
+
+
+
+{% endblock %}
