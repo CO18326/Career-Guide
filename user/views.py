@@ -16,6 +16,10 @@ def login_view(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
+                if user.profile.organisation == "Profesor": 
+                    return redirect("/professor")    
+
+
                 return redirect("/")
             else:    
                 msg = 'Invalid credentials'    

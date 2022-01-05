@@ -12,4 +12,5 @@ class profile(models.Model):
     passout_year=models.IntegerField(null=True)
     placement_year=models.IntegerField(null=True)
     branch=models.CharField(max_length=30,choices=[("CSE", "CSE"), ("CIVIL", "CIVIL"),("ECE", "ECE"),("MECH", "MECH")],null=True)
-    
+
+

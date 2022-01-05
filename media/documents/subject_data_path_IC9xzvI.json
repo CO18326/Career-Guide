@@ -1,0 +1,71 @@
+{
+    "subject_name" : "Name of Subject", 
+
+    "pre"  : [
+        "preq 1", 
+        "preq 2" 
+    ], 
+
+    "outcome" : [
+        "outcome1", 
+        "outcome2"
+    ], 
+
+    "path" : {
+        "Level_1" : {
+            
+            
+            "topic_1" : {
+                "name" : "name_of_topic", 
+                "link need to learn" : [
+                    "https://example1.com", 
+                    "httsp://example2.com" 
+                ], 
+                "outcome" : [
+                    "outcome1"
+                ]
+            }, 
+
+            "topic_2" : {
+                "name" : "name_of_topic", 
+                "link need to learn" : [
+                    "https://example1.com", 
+                    "httsp://example2.com" 
+                ], 
+                "outcome" : [
+                    "outcome1"
+                ]
+            }
+
+        }, 
+
+        "Level_2" : {
+            
+            
+            "topic_1" : {
+                "name" : "name_of_topic", 
+                "link need to learn" : [
+                    "https://example1.com", 
+                    "httsp://example2.com" 
+                ], 
+                "outcome" : [
+                    "outcome1"
+                ]
+            }, 
+
+            "topic_2" : {
+                "name" : "name_of_topic", 
+                "link need to learn" : [
+                    "https://example1.com", 
+                    "httsp://example2.com" 
+                ], 
+                "outcome" : [
+                    "outcome1"
+                ]
+            }
+
+        }
+
+
+    }
+}

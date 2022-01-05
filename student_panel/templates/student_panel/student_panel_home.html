@@ -1,12 +1,68 @@
 {% extends 'student_panel_basic.html' %}
+{% load static %}
 {% block head %}
-    <title> 
-
-    </title> 
 {% endblock %}
 
 {% block body %}
-    <p> 
-        Home Phunjgye
-    </p> 
+
+    <div class="container">
+        <div class="row"> 
+            <div class="col-sm-3">
+                <div class="card" style="width: 18rem;">
+                    <img src="{% static 'assets/course_image.png' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><b>Course List</b></h5>
+                        <p class="card-text">
+                            view the list of course 
+                            registerd on the website 
+                            here, you will se subject 
+                            course of your current semester only.
+                        </p>
+                        <a href="#" class="btn btn-primary">Check Courses</a>
+                    </div>
+                </div>
+            </div>  
+
+
+            <div class="col-sm-3">
+                <div class="card" style="width: 18rem;">
+                    <img src="{% static 'assets/professors.jpeg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><b>Professors List</b></h5>
+                        <p class="card-text">
+                            Check list of all professor 
+                            listed on website of all colleges 
+                            here. search for best professor
+                            <br/>
+                        </p>
+                        <a href="#" class="btn btn-primary" style="margin-top: 10px;">Check Professors</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-3">
+                {% comment %} 
+                    
+                {% endcomment %}
+                <div class="card" style="width: 18rem;">
+                    <img src="{% static 'assets/professors.jpeg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><b>Professors List</b></h5>
+                        <p class="card-text">
+                            Check list of all professor 
+                            listed on website of all colleges 
+                            here. search for best professor
+                            <br/>
+                        </p>
+                        <a href="#" class="btn btn-primary" style="margin-top: 10px;">Check Professors</a>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div> 
+    </div> 
+
 {% endblock %}

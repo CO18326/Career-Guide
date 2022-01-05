@@ -1,0 +1,110 @@
+{% extends 'professor.basic.html' %}
+{% load static %}
+{% block head %}
+{% endblock %}
+
+{% block body %}
+    <h1> 
+        <a href="{% url 'ProfessorLogout' %}">logout</a>
+    </h1> 
+
+
+
+    <div class="container">
+        <div class="row"> 
+            <div class="col-sm-4">
+                {% comment %} 
+                    
+                {% endcomment %}
+                <div class="card" style="width: 18rem;">
+                    <img src="{% static 'assets/course_image.png' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><b>Check Course List</b></h5>
+                        <p class="card-text">
+                            view the list of course 
+                            registerd on the website 
+                            here, you will see subject 
+                            course enlisted.
+                        </p>
+                        <a href="{% url 'ShowCourse' %}" class="btn btn-primary">Check Courses List</a>
+                    </div>
+                </div>
+            </div>  
+
+
+            <div class="col-sm-4">
+                {% comment %} 
+                    
+                {% endcomment %}
+                <div class="card" style="width: 18rem;">
+                    <img src="{% static 'assets/professors.jpeg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><b>View Course</b></h5>
+                        <p class="card-text">
+                            View deatils of course here 
+                            you can we all coursed data you registered.
+                            <br/>
+                        </p>
+                        <a href="{% url 'ShowCourse' %}" class="btn btn-primary" style="margin-top: 10px;">View Course</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                {% comment %} 
+                    
+                {% endcomment %}
+                <div class="card" style="width: 18rem;">
+                    <img src="{% static 'assets/professors.jpeg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><b>Register new Course</b></h5>
+                        <p class="card-text">
+                            Register a new Course, upload the json 
+                            file of course details.
+                            <br/>
+                        </p>
+                        <a href="{% url 'CourseRegister' %}" class="btn btn-primary" style="margin-top: 10px;">Register Course</a>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div> 
+    
+    <br />
+    <div class="container"> 
+        <hr />
+        <div class="row"> 
+            <div class="col-sm-4"> 
+                <div class="card" style="width: 18rem;">
+                    <img src="{% static 'assets/professors.jpeg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><b>View Student Data</b></h5>
+                        <p class="card-text">
+                            Register a new Course, upload the json 
+                            file of course details.
+                            <br/>
+                        </p>
+                        <a href="#" class="btn btn-primary" style="margin-top: 10px;">Student Data</a>
+                    </div>
+                </div>
+            
+            </div> 
+
+            <div class="col-sm-4"> 
+                <div class="card" style="width: 18rem;">
+                    <img src="{% static 'assets/professors.jpeg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><b>View Student Data</b></h5>
+                        <p class="card-text">
+                            Register a new Course, upload the json 
+                            file of course details.
+                            <br/>
+                        </p>
+                        <a href="#" class="btn btn-primary" style="margin-top: 10px;">Student Data</a>
+                    </div>
+                </div>
+            </div> 
+        </div> 
+
+    </div> 
+{% endblock %}

@@ -7,11 +7,17 @@ import json
 
 
 def register_course(request): 
+    context = {}
+    context['REG_SUCCESS'] = False 
     if request.method == "POST": 
         form = CourseDataForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-    context = {}
+            
+        context['REG_SUCCESS'] = True 
+        context['course_name'] = form.cleaned_data.get('course_name')
+        print("------------------")
+        
     context['form'] = CourseDataForm 
     return render(request, 'course_system/course_register.html', context)
 
@@ -45,6 +51,6 @@ def view_coures_coures_id(request, courese_id):
         course_json_object = json.loads(course_json_data_file.read())
         course_json_data_file.close()
         
-        
+
     except: 
         redirect('/coures/viewlist')

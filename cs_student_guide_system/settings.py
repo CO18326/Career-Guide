@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'student_panel', # student_panel application installed. 
     'user_data', # user_data application installed.
     'course_system', # course_system application installed. 
+    'professor_panel', # professor_panel application instaled. 
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

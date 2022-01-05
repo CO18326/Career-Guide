@@ -6,9 +6,21 @@
 {% endblock %}
 
 {% block body %}
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Upload</button>
-  </form>
+{% if REG_SUCCESS %}
+    <div class="alert alert-success" role="alert">
+        {{ course_name }} course has been registered.
+    </div>
+{% endif %}
+
+<div class="container" style="border: 1px solid gray;padding: 4px;"> 
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="courseName">Course Name</label> 
+        {{ form.course_name }}
+        <label for="courseJsonFile">Course JSON File</label> 
+        {{ form.course_json_file }}
+        <br />
+        <button class="btn btn-primary" type="submit">Upload</button>
+    </form>
+</div> 
 {% endblock %}
