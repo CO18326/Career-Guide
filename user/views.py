@@ -37,7 +37,10 @@ def register_user(request):
         
         form = SignUpForm(request.POST)
         if form.is_valid():
+            print("----------------------")
             a=form.save()
+            print("----------------------")
+            print(a)
             username = form.cleaned_data.get("username")
             raw_password = form.cleaned_data.get("password1")
             obj=profile.objects.create(user=a,organisation='Student',branch='CSE',semester=form.cleaned_data.get("semester"),passout_year=form.cleaned_data.get("passout_year"),placement_year=form.cleaned_data.get("placement_year"),firstname=form.cleaned_data.get("firstname"),lastname=form.cleaned_data.get("lastname"))
@@ -67,6 +70,11 @@ def register_professor(request):
         form = SignUpFormProfessor(request.POST)
         if form.is_valid():
             a=form.save()
+            print("-----------------")
+            print(a)
+            print(type(a))
+            print(a.get_full_name())
+            print("-----------------")
             username = form.cleaned_data.get("username")
             raw_password = form.cleaned_data.get("password1")
             obj=profile.objects.create(user=a,organisation='Profesor',branch=form.cleaned_data.get("Branch"),firstname=form.cleaned_data.get("firstname"),lastname=form.cleaned_data.get("lastname"))

@@ -1,7 +1,7 @@
-{% extends 'basic.html' %}
+{% extends 'course.basic.html' %}
 {% block head %}
     <title> 
-        CS | Course Register
+        {{ request.user.profile.firstname }} | Register
     </title>
 {% endblock %}
 
@@ -11,6 +11,8 @@
         {{ course_name }} course has been registered.
     </div>
 {% endif %}
+<br/> 
+<br/>
 
 <div class="container" style="border: 1px solid gray;padding: 4px;"> 
     <form method="post" enctype="multipart/form-data">

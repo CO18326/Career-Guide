@@ -1,7 +1,7 @@
-{% extends 'basic.html' %}
+{% extends 'course.basic.html' %}
 {% block head %}
     <title> 
-
+        {{ request.user.profile.firstname }} | View
     </title> 
 {% endblock %}
 
@@ -11,6 +11,8 @@
     {% comment %} 
         Course Details. 
     {% endcomment %}
+    <br/> 
+    <br/>
     <div class="container" style="border: 1px solid gray;padding: 5px;border-radius:5px;"> 
         <table class="table"> 
             <thead class="table-dark"> 
@@ -97,6 +99,45 @@
         <hr/>
     </div> 
 
+    {% comment %}  
+        Show path Here. 
+    {% endcomment %}
+
+    <div class="container"> 
+        <p class="h3"> 
+            {{ course_model.course_name }} Path
+        </p> 
+    </div> 
+    {% for unit in course_data_object.get_course_path %}
+        <div class="container bg-dark" style="border: 1px solid gray;padding:5px;margin-top: 10px;border-radius : 10px;color:white;"> 
+            <p class="h5 text-capitalize"> 
+                {{ unit.get_unit_name }}
+            </p>
+            <hr />
+            <p class="h6 text-capitalize"> 
+                unit Description : {{ unit.get_unit_des }}
+            </p>  
+            <p class="h6 text-capitalize">
+            </p> 
+            <ul> 
+                {% for link in unit.get_unit_links %}
+                <li> 
+                    <a href="{{ link }}" style="color:white;">{{ link }}</a> 
+                </li> 
+                {% endfor %}
+            </ul>
+            
+            <p class="h6 text-capitalize"> 
+                unit outcomes : {{ unit.get_unit_outcomes }}
+            </p> 
+
+
+        </div> 
+    {% endfor %}
+
+    <br /> 
+    <br /> 
+    <br /> 
 
 
 {% endblock %}

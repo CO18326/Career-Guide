@@ -1,10 +1,14 @@
 {% extends 'student_panel_basic.html' %}
 {% load static %}
 {% block head %}
+    <title> 
+        {{ request.user.profile.firstname }} | DashBoard
+    </title> 
 {% endblock %}
 
 {% block body %}
-
+    <br /> 
+    <br /> 
     <div class="container">
         <div class="row"> 
             <div class="col-sm-3">
@@ -58,11 +62,15 @@
                     </div>
                 </div>
             </div>
-
-
-
-
         </div> 
     </div> 
+
+    <div class="container"> 
+        <hr /> 
+    </div> 
+
+
+
+    
 
 {% endblock %}
