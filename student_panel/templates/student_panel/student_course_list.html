@@ -1,0 +1,7 @@
+{% extends 'student_panel_basic.html' %}
+{% load static %}
+{% block head %}
+    <title> 
+        {{ request.user.profile.firstname }} | Course 
+    </title> 
+{% endblock %}
