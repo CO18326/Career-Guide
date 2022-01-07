@@ -1,5 +1,5 @@
 {
-    "subject_name" : "Operating System",
+    "subject_name" : "Operating System", 
     
     "pre" : [
         "Discrete Mathematics",  
@@ -30,15 +30,6 @@
                 "https://example2.com"
             ], 
             "unit_outcomes" : "Understanding of process managemnt"            
-        }, 
-        "unit_3" : {
-            "unit_name" : "Deadlock", 
-            "description" : "underStanding concept of Deadlock in operating system", 
-            "links" : [
-                "https://example.com", 
-                "https://example2.com"
-            ], 
-            "unit_outcomes" : "Understanding the process Deadlock in operating System."
         }
     }, 
 

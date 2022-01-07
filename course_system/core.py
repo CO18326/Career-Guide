@@ -1,4 +1,4 @@
-# filname : core.py 
+# filname : core.py
 # *******************************************************
 # **************** Course Json data extractor *********** 
 # *******************************************************
@@ -24,6 +24,7 @@ class CourseJSONdataExtractor:
         self.__course_path = self.__course_json_object.get(COURSE_PATH)
         self.__course_pre_request = self.__course_json_object.get(COURSE_PRE_REQUEST)
         self.__course_outcomes = self.__course_json_object.get(COURSE_OUTCOMES)
+        print(self.__course_outcomes)
         self.__course_application = self.__course_json_object.get(COURSE_APPLICATIONS)
     
     def get_subject_name(self) -> str: 

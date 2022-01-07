@@ -3,7 +3,7 @@
 COURSE_SUBJECT_NAME = "subject_name"
 COURSE_PRE_REQUEST = "pre"
 COURSE_PATH = "path"
-COURSE_OUTCOMES = "outcome"
+COURSE_OUTCOMES = "outcomes"
 COURSE_APPLICATIONS = "application"
 COURSE_UNIT_NAME = "unit_name"
 COURSE_UNIT_DES  = "description"

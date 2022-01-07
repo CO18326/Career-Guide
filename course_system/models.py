@@ -8,7 +8,9 @@ class CourseData(models.Model):
     course_name = models.CharField(max_length=255, blank=True)
     course_json_file = models.FileField(upload_to='documents/')
     uploaded_at = models.DateTimeField(auto_now_add=True)
+    ## TODO : add a course register by field here. 
 
+    
     def __str__(self): 
         return self.course_name 
 

@@ -7,6 +7,19 @@
 
 
 {% block body %}
+    {% if student_view %}
+        {% if student_enrolled %}
+            <div class="alert alert-success"> 
+                <p> 
+                    Hii {{ request.user.profile.firstname }} You are Enrolled in this course. 
+                </p> 
+            </div> 
+        {% else %}
+            <div class="container" > 
+                <p class="h4"> Enroll : <a href="/course/enroll/{{ course_model.course_id }}"><button class="btn btn-dark" style="margin:5px;">Enroll</button></a> </p> 
+            </div> 
+        {% endif %}
+    {% endif %}
 
     {% comment %} 
         Course Details. 
