@@ -51,14 +51,31 @@
                 <div class="card" style="width: 18rem;">
                     <img src="{% static 'assets/professors.jpeg' %}" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title"><b>Professors List</b></h5>
+                        <h5 class="card-title"><b>Enrolled Courses List</b></h5>
                         <p class="card-text">
-                            Check list of all professor 
-                            listed on website of all colleges 
-                            here. search for best professor
+                            Check list of all course 
+                            you have Enrolled, they play role 
+                            in defining you Domain.
                             <br/>
                         </p>
-                        <a href="#" class="btn btn-primary" style="margin-top: 10px;">Check Professors</a>
+                        <a href="#" class="btn btn-primary" style="margin-top: 10px;">Courses Enrolled</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-3">
+        
+                <div class="card" style="width: 18rem;">
+                    <img src="{% static 'assets/professors.jpeg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><b>Select Domain</b></h5>
+                        <p class="card-text">
+                            You can update Your Domain Here. 
+                            System, Machine Learning, Theory,
+                            Programming, Computer Network.
+                            <br/>
+                        </p>
+                        <a href="#" class="btn btn-primary" style="margin-top: 10px;">Select Domain</a>
                     </div>
                 </div>
             </div>
@@ -66,11 +83,43 @@
     </div> 
 
     <div class="container"> 
-        <hr /> 
+        <hr />     
     </div> 
 
+    <div class="container"> 
+
+        <div class="row"> 
+            <div class="col-sm-3"> 
+                <div class="card" style="width: 18rem;">
+                    <img src="{% static 'assets/professors.jpeg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><b>Analysis Report</b></h5>
+                        <p class="card-text">
+                            Based on course you have enrolled 
+                            Here is the analysis report cum suggestions.
+                            <br/>
+                        </p>
+                        <a href="#" class="btn btn-primary" style="margin-top: 10px;">Analysis Report</a>
+                    </div>
+                </div>
+            </div> 
 
 
-    
-
+            <div class="col-sm-3"> 
+                <div class="card" style="width: 18rem;">
+                    <img src="{% static 'assets/professors.jpeg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><b>Domain Suggestions</b></h5>
+                        <p class="card-text">
+                            Based on you course enrollment 
+                            report Here is Domain Report for 
+                            you courses and profesor to follow.
+                            <br/>
+                        </p>
+                        <a href="#" class="btn btn-primary" style="margin-top: 10px;">Doamin Suggestion</a>
+                    </div>
+                </div>
+            </div> 
+        </div> 
+    </div> 
 {% endblock %}
