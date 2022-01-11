@@ -36,3 +36,22 @@ class SkillHotWords(models.Model):
 
     def __str__(self): 
         return self.skill_name + "_" + self.hot_word 
+
+
+class DomainName(models.Model): 
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name='student_domain')
+    skill_name = models.CharField(max_length=100)
+
+    def __str__(self): 
+        return self.skill_name 
+
+class DomainData(models.Model): 
+    domain_name = models.CharField(max_length=100)
+
+    def __str__(self): 
+        return self.domain_name 
+
+class studentDomain(models.Model): 
+
+    user_id = models.ForeignKey(User, related_name='sudent_d', on_delete=models.CASCADE)
+    skill_name = models.CharField(max_length=100)

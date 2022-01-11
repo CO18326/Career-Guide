@@ -5,6 +5,7 @@
 import json 
 from cs_student_guide_system.settings import MEDIA_ROOT, MEDIA_URL 
 
+
 def get_json_object(json_filename): 
     try:
         print(MEDIA_ROOT + "/" + str(json_filename))
@@ -14,3 +15,5 @@ def get_json_object(json_filename):
         return course_json_object 
     except Exception as e: 
         return None 
+
+

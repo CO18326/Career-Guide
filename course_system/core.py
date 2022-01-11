@@ -109,7 +109,7 @@ class CourseSkillMap:
 
 def find_text(input_text : str, target_str_list : list) -> bool:
     for target_str in target_str_list:  
-        if input_text.find(target_str) != -1: 
+        if input_text.lower().find(target_str.lower()) != -1: 
             return True 
     return False  
 
