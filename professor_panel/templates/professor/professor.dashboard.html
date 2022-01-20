@@ -12,7 +12,7 @@
     <br />
     <div class="container">
         <div class="row"> 
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 {% comment %} 
                     
                 {% endcomment %}
@@ -32,25 +32,7 @@
             </div>  
 
 
-            <div class="col-sm-4">
-                {% comment %} 
-                    
-                {% endcomment %}
-                <div class="card" style="width: 18rem;">
-                    <img src="{% static 'assets/professors.jpeg' %}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title"><b>View Course</b></h5>
-                        <p class="card-text">
-                            View deatils of course here 
-                            you can we all coursed data you registered.
-                            <br/>
-                        </p>
-                        <a href="{% url 'ShowCourse' %}" class="btn btn-primary" style="margin-top: 10px;">View Course</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 {% comment %} 
                     
                 {% endcomment %}
@@ -67,14 +49,8 @@
                     </div>
                 </div>
             </div>
-        </div> 
-    </div> 
-    
-    <br />
-    <div class="container"> 
-        <hr />
-        <div class="row"> 
-            <div class="col-sm-4"> 
+
+            <div class="col-sm-3"> 
                 <div class="card" style="width: 18rem;">
                     <img src="{% static 'assets/professors.jpeg' %}" class="card-img-top" alt="...">
                     <div class="card-body">
@@ -88,9 +64,10 @@
                     </div>
                 </div>
             
-            </div> 
+            </div>
 
-            <div class="col-sm-4"> 
+
+            <div class="col-sm-3"> 
                 <div class="card" style="width: 18rem;">
                     <img src="{% static 'assets/professors.jpeg' %}" class="card-img-top" alt="...">
                     <div class="card-body">
@@ -104,7 +81,12 @@
                     </div>
                 </div>
             </div> 
-        </div> 
 
+
+
+        </div> 
+        <hr />
     </div> 
+    
+    <br />
 {% endblock %}

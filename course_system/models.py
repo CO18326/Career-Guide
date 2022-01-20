@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User 
 from django.db import models
 from django.db.models.fields.related import ForeignKey
+from user.models import profile 
 
 ## CourseData contain details of course and course json file. 
 class CourseData(models.Model):
@@ -9,7 +10,6 @@ class CourseData(models.Model):
     course_json_file = models.FileField(upload_to='documents/')
     uploaded_at = models.DateTimeField(auto_now_add=True)
     ## TODO : add a course register by field here. 
-
     
     def __str__(self): 
         return self.course_name 
@@ -17,7 +17,7 @@ class CourseData(models.Model):
 ## course register by data contains who as registered the course. 
 class CourseRegisterBy(models.Model): 
     course_id = models.ForeignKey(CourseData, on_delete=models.CASCADE,related_name='course_user_map')
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_course_map')
+    user_id = models.ForeignKey(profile, on_delete=models.CASCADE, related_name='user_course_map')
 
 
 

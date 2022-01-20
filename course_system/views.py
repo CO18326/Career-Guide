@@ -18,7 +18,7 @@ def register_course(request):
             course_object = form.save()
             course_register_by = CourseRegisterBy()
             course_register_by.course_id = course_object
-            course_register_by.user_id = request.user 
+            course_register_by.user_id = request.user.profile  
             course_register_by.save()
 
         context['REG_SUCCESS'] = True 

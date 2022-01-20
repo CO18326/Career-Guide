@@ -1,0 +1,63 @@
+{% extends 'student_panel_basic.html' %}
+{% load static %}
+{% block head %}
+    <title> 
+        {{ request.user.profile.firstname }} | Enrolled
+    </title> 
+{% endblock %}
+
+{% block body %}
+
+    {% if NO_ENROLL %}
+        <div class="alert alert-danger text-capitalize">
+            You have not Enrolled for Any Course.<b>Please Enroll for same course</b>
+        </div> 
+    {% else %}
+
+    <div class="container"> 
+        <center> 
+            <p class="h3">
+                List of Enrolled
+            </p> 
+        </center> 
+    </div> 
+
+    <div class="container">
+        <table class="table" style="border: 1px solid gray;border-radius: 10px;padding:10px">
+            <thead> 
+                <th scope="col">
+                    Course ID 
+                </th> 
+                <th scope="col">
+                    Course Name 
+                </th> 
+                <th scope="col"> 
+                    Registred on 
+                </th> 
+                <th scope="col">
+                    link 
+                </th> 
+            </thead> 
+            <tbody> 
+                {% for course in course_list %}
+                    <tr> 
+                        <td> 
+                            {{ course.course_id }} 
+                        </td> 
+                        <td> 
+                            {{ course.course_name }} 
+                        </td> 
+                        <td> 
+                            {{ course.uploaded_at }}
+                        </td> 
+                        <td> 
+                            <a href="/course/courseview/{{ course.course_id }}">link</a>
+                        </td> 
+                    </tr> 
+                {% endfor %}
+            </tbody> 
+        </table> 
+    </div> 
+    {% endif %}
+
+{% endblock %}
