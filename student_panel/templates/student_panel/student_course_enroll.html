@@ -24,7 +24,7 @@
 
     <div class="container" style="border: 1px solid gray;border-radius: 10px;padding:10px">
         <table class="table" >
-            <thead> 
+            <thead class="table-dark">  
                 <th scope="col">
                     Course ID 
                 </th> 
@@ -34,24 +34,36 @@
                 <th scope="col"> 
                     Registred on 
                 </th> 
+
+                <th scope="col"> 
+                    skill tag
+                </th> 
+
                 <th scope="col">
                     link 
                 </th> 
             </thead> 
             <tbody> 
-                {% for course in course_list %}
+                {% for course_tag in list_course_tag %}
                     <tr> 
                         <td> 
-                            {{ course.course_id }} 
+                            {{ course_tag.course.course_id }} 
                         </td> 
                         <td> 
-                            {{ course.course_name }} 
+                            {{ course_tag.course.course_name }} 
                         </td> 
                         <td> 
-                            {{ course.uploaded_at }}
+                            {{ course_tag.course.uploaded_at }}
                         </td> 
+                        
                         <td> 
-                            <a href="/course/courseview/{{ course.course_id }}">link</a>
+                            {% for tag in course_tag.tag_list %}
+                            <span class="badge bg-info"> {{ tag }} </span> 
+                            {% endfor %}    
+                        </td>
+
+                        <td> 
+                            <a href="/course/courseview/{{ course_tag.course.course_id }}">view</a>
                         </td> 
                     </tr> 
                 {% endfor %}

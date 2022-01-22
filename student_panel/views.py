@@ -7,6 +7,8 @@ from django.contrib.auth import login, logout
 from user.models import profile 
 from course_system.models import DomainData, DomainName, studentDomain, CourseEnroll  
 from user.models import profile 
+from course_system.utils import CourseTagList, ProfesorTagList 
+from course_system.core import get_tag_course,get_professor_tag_list
 
 @login_required 
 def student_panel_home_page(request): 
@@ -23,8 +25,10 @@ def logout_user(request):
 @login_required 
 def professor_list(request): 
     context = {}
-        
-    return render(request, 'stuent_panel/student_panel_professor_list.html', context)
+    profesor_list = profile.objects.filter(organisation='Profesor')
+    profesor_obj_tag_map_list = [ProfesorTagList(profile_data=prof,tag_list=get_professor_tag_list(prof)) for prof in profesor_list]
+    context['profesor_tag_list'] = profesor_obj_tag_map_list
+    return render(request, 'student_panel/student_panel_professor_list.html', context)
 
 @login_required 
 def update_domain(request): 
@@ -55,18 +59,16 @@ def get_enrolled_course_list(request):
     context = {}
     context['NO_ENROLL'] = False 
     list_of_courses = [data.course_id for data in CourseEnroll.objects.filter(student_id = request.user)]
+    
+    ## get list of course in tag. 
+    list_course_tag = [CourseTagList(course_data = course,tag_list=get_tag_course(course)) for course in list_of_courses]
+
     print(list_of_courses)
     if list_of_courses == []: 
         context['NO_ENROLL'] = True 
-    context['course_list'] = list_of_courses 
+    context['course_list'] = list_of_courses
+    context['list_course_tag'] = list_course_tag  
     for course in context['course_list']: 
         print(course.course_name)
     return render(request, 'student_panel/student_course_enroll.html', context)
 
-@login_required 
-def get_profesor_list(request): 
-    context = {}
-    # get list of all profesor. 
-    list_of_profesor = profile.objects.filter(organization = 'Profesor')
-    context['profesor_list'] = list_of_profesor 
-    return render(request, 'student_panel/student_profesor_list.html', context)

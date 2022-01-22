@@ -3,7 +3,7 @@
 # **************** Course Json data extractor *********** 
 # *******************************************************
 
-from course_system.models import CourseData, DomainData, SkillHotWords 
+from course_system.models import CourseData, CourseRegisterBy, DomainData, SkillHotWords 
 from .constants import (
     COURSE_SUBJECT_NAME, 
     COURSE_PRE_REQUEST, 
@@ -16,6 +16,7 @@ from .constants import (
     COURSE_UNIT_OUTCOMES, 
 )
 from .utils import get_json_object_course
+from user.models import profile 
 
 class CourseJSONdataExtractor: 
 
@@ -135,3 +136,14 @@ def get_tag_course(course_object : CourseData) -> list:
     print("-----------")
     return tag_course_list 
 
+
+def get_professor_tag_list(profesor_profile_object : profile): 
+    # list of courses by specific profesor. 
+    course_list_profesor = [course_data.course_id for course_data in CourseRegisterBy.objects.filter(user_id = profesor_profile_object)]
+    # list contan all tag for course. 
+    profesor_tag_list = []
+    for course in course_list_profesor: 
+        # append course tag in profesor tag list. 
+        profesor_tag_list.extend(get_tag_course(course_object = course))
+    # return tag list profesor. 
+    return profesor_tag_list

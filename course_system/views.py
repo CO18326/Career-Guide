@@ -32,7 +32,7 @@ def register_course(request):
 def show_register_course(request): 
     context = {}
     if request.user.profile.organisation == "Profesor":
-        course_data = CourseRegisterBy.objects.filter(user_id = request.user)
+        course_data = CourseRegisterBy.objects.filter(user_id = request.user.profile)
         print(course_data)
         print(MEDIA_ROOT)
         print(MEDIA_URL)

@@ -1,0 +1,41 @@
+{
+    "subject_name" : "Operating System", 
+    
+    "pre" : [
+        "Discrete Mathematics",  
+        "Programming Languages" 
+    ], 
+    
+    "outcomes" : [
+        "Understanding of Working of operating system", 
+        "Foundation of Compiler Design", 
+        "Under Standing of Virtual Memory"
+    ], 
+
+    "path" : {
+        "unit_1" : {
+            "unit_name" : "Introduction to Operating System", 
+            "description" : "This unit details with intro of subject",
+            "links" : [
+                "https://example.com", 
+                "https://example2.com"
+            ], 
+            "unit_outcomes" : "understanding of operating system"
+        }, 
+        "unit_2" : {
+            "unit_name" : "Process Management", 
+            "description" : "This unit introduce student with process management.",
+            "links" : [
+                "https://example.com", 
+                "https://example2.com"
+            ], 
+            "unit_outcomes" : "Understanding of process managemnt"            
+        }
+    }, 
+
+    "application" : [
+        "compiler design", 
+        "process managment", 
+        "virtual memory"
+    ]
+}
