@@ -3,6 +3,7 @@
 # **************** Course Json data extractor *********** 
 # *******************************************************
 
+from course_system.models import CourseData, DomainData, SkillHotWords 
 from .constants import (
     COURSE_SUBJECT_NAME, 
     COURSE_PRE_REQUEST, 
@@ -14,6 +15,7 @@ from .constants import (
     COURSE_UNIT_LINK, 
     COURSE_UNIT_OUTCOMES, 
 )
+from .utils import get_json_object_course
 
 class CourseJSONdataExtractor: 
 
@@ -111,4 +113,25 @@ def find_text(input_text : str, target_str_list : list) -> bool:
         if input_text.lower().find(target_str.lower()) != -1: 
             return True 
     return False  
+
+
+def get_tag_course(course_object : CourseData) -> list: 
+    tag_course_list = []
+    # list of all skils. 
+    skill_list = [ skill.domain_name for skill in DomainData.objects.all() ]
+    for skill in skill_list: 
+        # list of all hot words for that particular skill. 
+        skill_word_data_object = SkillHotWords.objects.filter(skill_name = skill)
+        skill_list_hot_words = [sk.hot_word for sk in skill_word_data_object]
+        if skill_list_hot_words != []: 
+            print(skill_list_hot_words)
+            skill_map_object = CourseSkillMap(course_json_extractor=CourseJSONdataExtractor(course_json_object=get_json_object_course(course_object)), skill_hot_work_list=skill_list_hot_words)
+            if skill_map_object.is_required(): 
+                tag_course_list.append(skill)
+                
+
+    print("-----------")
+    print(tag_course_list)
+    print("-----------")
+    return tag_course_list 
 

@@ -7,7 +7,6 @@ from django.contrib.auth import login, logout
 from user.models import profile 
 from course_system.models import DomainData, DomainName, studentDomain, CourseEnroll  
 from user.models import profile 
-from .utils import ProfesorData 
 
 @login_required 
 def student_panel_home_page(request): 
@@ -24,14 +23,7 @@ def logout_user(request):
 @login_required 
 def professor_list(request): 
     context = {}
-
-    professor_list = profile.objects.filter(organisation = 'Profesor')
-    print(professor_list)
-    for profesor in professor_list: 
-        profesor_data = ProfesorData(profile_data=profesor)
-        professor_data_list = profesor_data.get_domain()
-        print(professor_data_list)
-    context['profesor_list'] = professor_list         
+        
     return render(request, 'stuent_panel/student_panel_professor_list.html', context)
 
 @login_required 
@@ -71,3 +63,10 @@ def get_enrolled_course_list(request):
         print(course.course_name)
     return render(request, 'student_panel/student_course_enroll.html', context)
 
+@login_required 
+def get_profesor_list(request): 
+    context = {}
+    # get list of all profesor. 
+    list_of_profesor = profile.objects.filter(organization = 'Profesor')
+    context['profesor_list'] = list_of_profesor 
+    return render(request, 'student_panel/student_profesor_list.html', context)

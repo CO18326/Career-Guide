@@ -1,0 +1,22 @@
+{% extends 'student_panel_basic.html' %}
+{% load static %}
+{% block head %}
+    {{ request.user.profile.firstname }} | List
+{% endblock %}
+
+{% block body %}
+    <div class="container"> 
+        <center> 
+            <p class="h3 fg-gray">
+                Profesor List  
+            </p> 
+        </center> 
+    </div> 
+    <div class="container"> 
+        {% comment %} 
+            show list of professor, 
+            if there is not professor. 
+        {% endcomment %}
+        
+    </div> 
+{% endblock %}

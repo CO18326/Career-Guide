@@ -4,6 +4,7 @@
 # ****************************************
 import json 
 from cs_student_guide_system.settings import MEDIA_ROOT, MEDIA_URL 
+from .models import CourseData 
 
 
 def get_json_object(json_filename): 
@@ -17,3 +18,6 @@ def get_json_object(json_filename):
         return None 
 
 
+def get_json_object_course(course : CourseData): 
+    ## get course file using json object. 
+    return get_json_object(course.course_json_file)
