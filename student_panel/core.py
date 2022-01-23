@@ -24,10 +24,13 @@ def list_course_student_preferece(user : User) -> List[StudentCourseMap]:
     skill_list = [sk.skill_name for sk in intersted_skill]
     # list of all coursed. 
     list_of_course = CourseData.objects.all()
-    for course in list_of_course: 
-        if get_tag_course(course) in skill_list: 
+    for course in list_of_course:
+        print("...")
+        print(get_tag_course(course)) 
+        print("....")
+        if if_element_in(get_tag_course(course), skill_list): 
             course_interest_list.append(course)
-
+   
     for course in course_interest_list: 
         if course in enroll_course_l: 
             student_map_course_list.append(
@@ -49,3 +52,8 @@ def list_course_student_preferece(user : User) -> List[StudentCourseMap]:
     return student_map_course_list 
 
     
+def if_element_in(lst_1, lst_2): 
+    for ele in lst_1: 
+        if ele in lst_2: 
+            return True 
+    return False 

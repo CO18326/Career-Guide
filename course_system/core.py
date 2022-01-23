@@ -3,7 +3,7 @@
 # **************** Course Json data extractor *********** 
 # *******************************************************
 
-from course_system.models import CourseData, CourseRegisterBy, DomainData, SkillHotWords 
+from course_system.models import CourseData, CourseRegisterBy, DomainData, SkillHotWords, CourseEnroll  
 from .constants import (
     COURSE_SUBJECT_NAME, 
     COURSE_PRE_REQUEST, 
@@ -17,6 +17,7 @@ from .constants import (
 )
 from .utils import get_json_object_course
 from user.models import profile 
+from django.contrib.auth.models import User 
 
 class CourseJSONdataExtractor: 
 
@@ -147,3 +148,13 @@ def get_professor_tag_list(profesor_profile_object : profile):
         profesor_tag_list.extend(get_tag_course(course_object = course))
     # return tag list profesor. 
     return profesor_tag_list
+
+def get_student_tag_list(student_profile_object : profile): 
+    # list of coursed by student. 
+    course_list_student = [course_data.course_id for course_data in CourseEnroll.objects.filter(student_id = User.objects.get(username = student_profile_object.user.username))]
+    student_tag_list = []
+    for course in course_list_student: 
+        # append course tag in profesor tag list. 
+        student_tag_list.extend(get_tag_course(course_object = course))
+    # return tag list profesor. 
+    return student_tag_list 

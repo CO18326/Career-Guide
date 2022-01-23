@@ -1,0 +1,82 @@
+{% extends 'professor.basic.html' %}
+{% load static %}
+{% block head %}
+    <title> 
+        {{ request.user.profile.firstname }} | Student 
+    </title> 
+{% endblock %}
+
+{% block body %}
+
+    <div class="container"> 
+        <center>
+            <p class="h2"> 
+                Data of Student Based on Enrollment and Interest. 
+            </p> 
+        </center> 
+    </div> 
+
+    <div class="container">
+        <span class="badge bg-success"> 
+            based on enrollment 
+        </span>
+        <span class="badge bg-info"> 
+            based on interest 
+        </span>  
+        <table class="table"> 
+            <thead> 
+                <th scope="col"> 
+                    Student Name  
+                </th> 
+                <th scope="col"> 
+                    Branch 
+                </th> 
+                
+                <th scope="col"> 
+                    Skill Tag 
+                </th> 
+
+                <th scope="col"> 
+                    Email Address 
+                </th> 
+
+            </thead> 
+
+            <tbody> 
+                {% for student_data in student_map_list %}
+
+                    <tr> 
+                        <td> 
+                            {{ student_data.student_profile.firstname }} {{ student_data.student_profile.lastname }}
+                        </td> 
+            
+                        <td> 
+                            {{ student_data.student_profile.branch }}
+                        </td> 
+
+                        <td> 
+                            {% for tag  in student_data.tag_list %}
+                                <span class="badge bg-success"> {{ tag }} </span>
+                            {% endfor %}
+                            <br/>
+                            {% for tag in student_data.tag_list_in %}
+                                <span class="badge bg-info">{{ tag }}</span>
+                            {% endfor %}
+                        </td> 
+
+                        <td> 
+                            {{ student_data.student_profile.user.username }}
+                        </td> 
+                    
+                    </tr> 
+
+
+                {% endfor %}
+            </tbody> 
+        </table> 
+      
+
+    </div> 
+
+
+{% endblock %}

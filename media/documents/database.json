@@ -1,0 +1,52 @@
+{
+    "subject_name" : "Database Managment System"
+    
+    "pre" : [
+        "Discrete Mathematics"
+    ], 
+    
+    "outcomes" : [
+        "Relational Algebra",
+        "Database Managment Systems",
+        "MySql,Oracle",
+        "Sql Queries"
+    ], 
+
+    "path" : {
+        "unit_1" : {
+            "unit_name" : "Traditional  methods of storing data", 
+            "description" : "Different approaches to store data, Files, Database",
+            "links" : [
+                "https://example.com", 
+                "https://example2.com"
+            ], 
+            "unit_outcomes" : "student will learn about their history to store data"
+        }, 
+        "unit_2" : {
+            "unit_name" : "Data Base Managment System", 
+            "description" : "Intro to the database managment systems.",
+            "links" : [
+                "https://example.com", 
+                "https://example2.com"
+            ], 
+            "unit_outcomes" : "MYSQl, Oracle"            
+        }, 
+        "unit_3" : {
+            "unit_name" : "normal forms", 
+            "description" : "Normal forms", 
+            "links" : [
+                "https://example.com", 
+                "https://example2.com"
+            ], 
+            "unit_outcomes" : "1NF,2NF,3NF,BCNF,4NF,5NF,6NF."
+        }
+    }, 
+
+    "application" : [
+        "Design Websites",
+        "Data Scientist",
+        "Big Data",
+        "Disk Managment",
+        "B-trees"
+    ]
+}

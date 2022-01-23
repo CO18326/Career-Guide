@@ -105,3 +105,4 @@ def student_course_enroll(request, course_id):
         enroll_obj.save() # enroll student. 
         return redirect(f'/course/courseview/{course_id}')
     return redirect(f'/course/courseview/{course_id}')
+

@@ -1,0 +1,84 @@
+{% extends 'student_panel_basic.html' %}
+{% load static %}
+{% block head %}
+    <title> 
+        {{ request.user.profile.firstname }} | Course
+    </title> 
+{% endblock %}
+
+{% block body %}
+
+    <div class="container"> 
+        <center> 
+            List of courses. 
+        </center> 
+    </div> 
+
+    <div class="container"> 
+        <table class="table">
+            <thead class="table-dark"> 
+                <th scope="col"> 
+                    Course ID 
+                </th> 
+                <th scope="col"> 
+                    Course Name  
+                </th> 
+                <th scope="col"> 
+                    Registered on 
+                </th> 
+                <th scope="col"> 
+                    Enrolled / Not Enrolled 
+                </th> 
+                <th scope="col"> 
+                    skill tag 
+                </th> 
+                <th scope="link"> 
+                    link 
+                </th> 
+            </thead> 
+
+            <tbody> 
+                {% for course_map in course_map_list %}
+                
+                <tr> 
+                    <td> 
+                        {{ course_map.course_data.course_id }}
+                    </td> 
+                    <td> 
+                        {{ course_map.course_data.course_name }}
+                    </td> 
+                    <td> 
+                        {{ course_map.course_data.uploaded_at }}
+                    </td> 
+                    <td> 
+                        {% if course_map.enroll %}
+                            <span class="badge bg-success"> 
+                                Enroll 
+                            </span> 
+                        {% else %}
+                            <span class="badge bg-warning"> 
+                                Not Enrolled     
+                            </span> 
+                        {% endif %}
+                    </td> 
+                    <td> 
+                        {% for tag in course_map.tag_list %}
+                            <span class="badge bg-info"> 
+                                {{ tag }}
+                            </span> 
+                        {% endfor %}
+                    </td> 
+
+                    <td> 
+                        <a href="/course/courseview/{{ course_map.course_data.course_id }}">link</a> 
+                    </td> 
+                </tr> 
+                
+                {% endfor %}
+            </tbody> 
+
+        </table> 
+    </div> 
+
+{% endblock %}
+

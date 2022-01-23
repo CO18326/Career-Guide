@@ -1,0 +1,49 @@
+{
+    "subject_name" : "Deep Learning",
+    
+    "pre" : [
+        "Python Programming Language"
+    ], 
+    
+    "outcomes" : [
+        "Able to Design ML algorithms",
+        "Have complete knowledge of Linear Algebra",
+        "CNN, ANN and GANs"
+    ], 
+
+    "path" : {
+        "unit_1" : {
+            "unit_name" : "Linear Algebra", 
+            "description" : "Basics of matrix",
+            "links" : [
+                "https://example.com", 
+                "https://example2.com"
+            ], 
+            "unit_outcomes" : "matrix multiplication, dot product, cross product"
+        }, 
+        "unit_2" : {
+            "unit_name" : "Linear Regression", 
+            "description" : "Knowledge about basic linear regression model.",
+            "links" : [
+                "https://example.com", 
+                "https://example2.com"
+            ], 
+            "unit_outcomes" : "Linear regression"            
+        }, 
+        "unit_3" : {
+            "unit_name" : "CNN", 
+            "description" : "Working and concepts about CNN", 
+            "links" : [
+                "https://example.com", 
+                "https://example2.com"
+            ], 
+            "unit_outcomes" : "Student will able to design CNN and apply them on practical problems."
+        }
+    }, 
+
+    "application" : [
+        "Image processing", 
+        "Brain mapping", 
+        "IOT"
+    ]
+}

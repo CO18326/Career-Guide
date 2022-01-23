@@ -9,6 +9,7 @@ from course_system.models import CourseRegisterBy, DomainData, DomainName, stude
 from user.models import profile 
 from course_system.utils import CourseTagList, ProfesorTagList 
 from course_system.core import get_tag_course,get_professor_tag_list
+from .core import list_course_student_preferece
 
 @login_required 
 def student_panel_home_page(request): 
@@ -92,3 +93,14 @@ def get_profesor_course(request,username):
         context['valid'] = True 
         context['list_course_tag'] = list_course_tag 
     return render(request, 'student_panel/student_panel_prof_course.html',context)
+
+
+@login_required 
+def student_intrest_course_list(request): 
+    context = {}
+    course_map_list = list_course_student_preferece(request.user)
+    print("-------------------------")
+    print(course_map_list)
+    print("---------------------------")
+    context['course_map_list'] = course_map_list 
+    return render(request, 'student_panel/student_panel_interest_course.html',context)
