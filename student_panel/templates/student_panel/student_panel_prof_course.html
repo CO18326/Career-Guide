@@ -1,0 +1,85 @@
+{% extends 'student_panel_basic.html' %}
+{% load static %}
+{% block head %}
+    <title> 
+        {{ request.user.profile.firstname }} | Enrolled
+    </title> 
+{% endblock %}
+
+{% block body %}
+
+    {% if NO_ENROLL %}
+        <div class="alert alert-danger text-capitalize">
+            You have not Enrolled for Any Course.<b>Please Enroll for same course</b>
+        </div> 
+    {% else %}
+
+    {% if valid %}
+
+        <div class="container"> 
+            <center> 
+                <p class="h3">
+                    List of courses. 
+                </p> 
+            </center> 
+        </div> 
+
+
+        <div class="container" style="border: 1px solid gray;border-radius: 10px;padding:10px">
+            <table class="table" >
+                <thead class="table-dark">  
+                    <th scope="col">
+                        Course ID 
+                    </th> 
+                    <th scope="col">
+                        Course Name 
+                    </th> 
+                    <th scope="col"> 
+                        Registred on 
+                    </th> 
+
+                    <th scope="col"> 
+                        skill tag
+                    </th> 
+
+                    <th scope="col">
+                        link 
+                    </th> 
+                </thead> 
+                <tbody> 
+                    {% for course_tag in list_course_tag %}
+                        <tr> 
+                            <td> 
+                                {{ course_tag.course.course_id }} 
+                            </td> 
+                            <td> 
+                                {{ course_tag.course.course_name }} 
+                            </td> 
+                            <td> 
+                                {{ course_tag.course.uploaded_at }}
+                            </td> 
+
+                            <td> 
+                                {% for tag in course_tag.tag_list %}
+                                <span class="badge bg-info"> {{ tag }} </span> 
+                                {% endfor %}    
+                            </td>
+
+                            <td> 
+                                <a href="/course/courseview/{{ course_tag.course.course_id }}">view</a>
+                            </td> 
+                        </tr> 
+                    {% endfor %}
+                </tbody> 
+            </table> 
+        </div> 
+    
+        {% else %}
+        <div class="alert alert-info">
+            No Courses has Been Registered.
+        </div> 
+    
+    {% endif %}
+    {% endif %}
+
+{% endblock %}

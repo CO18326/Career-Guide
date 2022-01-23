@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User 
 from django.contrib.auth import login, logout
 from user.models import profile 
-from course_system.models import DomainData, DomainName, studentDomain, CourseEnroll  
+from course_system.models import CourseRegisterBy, DomainData, DomainName, studentDomain, CourseEnroll  
 from user.models import profile 
 from course_system.utils import CourseTagList, ProfesorTagList 
 from course_system.core import get_tag_course,get_professor_tag_list
@@ -72,3 +72,23 @@ def get_enrolled_course_list(request):
         print(course.course_name)
     return render(request, 'student_panel/student_course_enroll.html', context)
 
+@login_required 
+def get_profesor_course(request,username): 
+    context = {}
+    user = User.objects.get(username=username)
+    professor_profile = profile.objects.get(user = user)
+    ## get all courses by targe professor. 
+    
+    course_list = CourseRegisterBy.objects.filter(user_id = professor_profile)
+
+
+
+    if course_list == []: 
+        context['valid'] = False 
+    else:
+        course_list_prof = [data.course_id for data in course_list]
+        print(course_list_prof)
+        list_course_tag = [CourseTagList(course_data = course, tag_list=get_tag_course(course)) for course in course_list_prof]  
+        context['valid'] = True 
+        context['list_course_tag'] = list_course_tag 
+    return render(request, 'student_panel/student_panel_prof_course.html',context)
