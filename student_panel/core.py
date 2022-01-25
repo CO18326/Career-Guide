@@ -8,7 +8,7 @@ from course_system.core import CourseJSONdataExtractor, CourseSkillMap, CourseUn
 from typing import List 
 from django.contrib.auth.models import User 
 from .utils import StudentCourseMap 
-from course_system.core import get_tag_course
+from course_system.core import get_tag_course, get_student_tag_list
 
 
 
@@ -22,6 +22,9 @@ def list_course_student_preferece(user : User) -> List[StudentCourseMap]:
     course_interest_list = []
     intersted_skill = studentDomain.objects.filter(user_id = user)
     skill_list = [sk.skill_name for sk in intersted_skill]
+    
+    skill_list.extend(get_student_tag_list(user.profile))
+    
     # list of all coursed. 
     list_of_course = CourseData.objects.all()
     for course in list_of_course:
@@ -31,6 +34,9 @@ def list_course_student_preferece(user : User) -> List[StudentCourseMap]:
         if if_element_in(get_tag_course(course), skill_list): 
             course_interest_list.append(course)
    
+
+
+
     for course in course_interest_list: 
         if course in enroll_course_l: 
             student_map_course_list.append(
